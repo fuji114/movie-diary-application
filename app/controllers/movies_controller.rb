@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
   before_action :move_to_index, except: [:index]
 
   def index
+    @movies = Movie.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -22,5 +23,9 @@ class MoviesController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+
+  def movie_params
+    params.require(:movie).permit(:movie_rating)
   end
 end

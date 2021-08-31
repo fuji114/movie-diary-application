@@ -15,26 +15,26 @@
       <%= link_to image_tag("—Pngtree—ink texture watercolor brush_5518211の緑", class:"google-btn"), "#" %>
     </div>
   </div>
-  <div class='item-contents'>
+  <div class='movie-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
     <div class="subtitle" >
       新規投稿
     </div>
-    <ul class='item-lists'>
+    <ul class='movie-lists'>
 
-      <% if @items.present? %>
-        <% @items.each do |item| %>
+      <% if @movies.present? %>
+        <% @movies.each do |movie| %>
           <li class='list'>
-            <%= link_to item_path(item.id) do %>
-            <div class='item-img-content'>
-              <%= image_tag "—Pngtree—ink texture watercolor brush_5518211の黄色", class: "item-img" %>
+            <%= link_to movie_path(movie.id) do %>
+            <div class='movie-img-content'>
+              <%= image_tag "—Pngtree—ink texture watercolor brush_5518211の黄色", class: "movie-img" %>
             </div>
-              <div class='item-info'>
-                <h3 class='item-name'>
-                  <%= item.product_name %>
+              <div class='movie-info'>
+                <h3 class='movie-name'>
+                  <%= movie.product_name %>
                 </h3>
-                <div class='item-price'>
-                  <span><%= item.product_price %>円<br><%= item.invoice_price.name %></span>
+                <div class='movie-price'>
+                  <span><%= movie.product_price %>円<br><%= movie.invoice_price.name %></span>
                   <div class='star-btn'>
                     <%= image_tag "—Pngtree—ink texture watercolor brush_5518211の黄色", class:"star-icon" %>
                     <span class='star-count'>0</span>
@@ -48,12 +48,12 @@
       <% else %>
         <li class='list'>
           <%= link_to '#' do %>
-          <%= image_tag " ", class: "item-img" %>
-          <div class='item-info'>
-            <h3 class='item-name'>
+          <%= image_tag " ", class: "movie-img" %>
+          <div class='movie-info'>
+            <h3 class='movie-name'>
               商品を出品してね！
             </h3>
-            <div class='item-price'>
+            <div class='movie-price'>
               <span>99999999円<br>(税込み)</span>
               <div class='star-btn'>
                 <%= image_tag " ", class:"star-icon" %>
@@ -67,3 +67,18 @@
     </ul>
   </div>
 </div>
+<% @movies.each do |movie| %>
+    <p><%= movie.content %></p>
+    <h4 class="mb-3">評価：<%= movie.rate %>点 </h4>
+    <div id="star-rate-<%= movie.id %>"></div>
+    <script>
+          $('#star-rate-<%= movie.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            score: <%= movie.rate %>,
+        });
+    </script> 
+<% end %>

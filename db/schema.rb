@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_060545) do
     t.integer "film_director"
     t.integer "genre_id", null: false
     t.text "synopsis"
-    t.integer "movie_rating", null: false
+    t.float "movie_rating", null: false
     t.text "review"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
