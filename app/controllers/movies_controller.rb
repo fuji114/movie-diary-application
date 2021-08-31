@@ -8,6 +8,15 @@ class MoviesController < ApplicationController
     @movie = Movie.new
   end
 
+  def create
+    @movie = Movie.new(movie_params)
+    if @movie.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   private
   def move_to_index
     unless user_signed_in?

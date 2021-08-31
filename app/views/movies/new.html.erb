@@ -25,12 +25,12 @@
           ジャンル
           <span class="indispensable">必須</span>
         </div>
-        <%# f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"movie-category"}) %>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"movie-genre"}) %>
         <div class="weight-bold-text">
           年代
           <span class="indispensable">必須</span>
         </div>
-        <%# f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"movie-category"}) %>
+        <%= f.collection_select(:movie_age_id, MovieAge.all, :id, :name, {}, {class:"select-box", id:"movie-movie-age"}) %>
         <div class="movies-explain">
           <div class="weight-bold-text">
             監督
