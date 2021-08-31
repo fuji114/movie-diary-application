@@ -1,0 +1,69 @@
+<%= render "shared/header" %>
+
+<div class='title-contents'>
+    <h2 class='service-title'>
+      映画鑑賞の投稿・記録・レビュー
+    </h2>
+    <p class='service-explain'>
+      いつどんな映画を見たかを
+    </p>
+    <p class='service-explain'>
+      記録するアプリ
+    </p>
+    <div class='store-btn'>
+      <%= link_to image_tag("—Pngtree—ink texture watercolor brush_5518211の緑", class:"apple-btn"), "#" %>
+      <%= link_to image_tag("—Pngtree—ink texture watercolor brush_5518211の緑", class:"google-btn"), "#" %>
+    </div>
+  </div>
+  <div class='item-contents'>
+    <h2 class='title'>ピックアップカテゴリー</h2>
+    <div class="subtitle" >
+      新規投稿
+    </div>
+    <ul class='item-lists'>
+
+      <% if @items.present? %>
+        <% @items.each do |item| %>
+          <li class='list'>
+            <%= link_to item_path(item.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag "—Pngtree—ink texture watercolor brush_5518211の黄色", class: "item-img" %>
+            </div>
+              <div class='item-info'>
+                <h3 class='item-name'>
+                  <%= item.product_name %>
+                </h3>
+                <div class='item-price'>
+                  <span><%= item.product_price %>円<br><%= item.invoice_price.name %></span>
+                  <div class='star-btn'>
+                    <%= image_tag "—Pngtree—ink texture watercolor brush_5518211の黄色", class:"star-icon" %>
+                    <span class='star-count'>0</span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+
+      <% else %>
+        <li class='list'>
+          <%= link_to '#' do %>
+          <%= image_tag " ", class: "item-img" %>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              商品を出品してね！
+            </h3>
+            <div class='item-price'>
+              <span>99999999円<br>(税込み)</span>
+              <div class='star-btn'>
+                <%= image_tag " ", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
