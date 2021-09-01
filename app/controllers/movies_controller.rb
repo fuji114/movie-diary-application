@@ -19,18 +19,17 @@ class MoviesController < ApplicationController
   end
 
   private
+
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
 
   def movie_params
     params.require(:movie)
-    .permit(
-      :image, :movie_title, :genre_id, :movie_age_id, 
-      :film_director, :synopsis, :movie_rating
-    )
-    .merge(user_id: current_user.id)
+          .permit(
+            :image, :movie_title, :genre_id, :movie_age_id,
+            :film_director, :synopsis, :movie_rating
+          )
+          .merge(user_id: current_user.id)
   end
 end
