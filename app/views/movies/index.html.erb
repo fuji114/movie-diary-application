@@ -1,0 +1,84 @@
+<%= render "shared/header" %>
+
+<div class='title-contents'>
+    <h2 class='service-title'>
+      映画鑑賞の投稿・記録・レビュー
+    </h2>
+    <p class='service-explain'>
+      いつどんな映画を見たかを
+    </p>
+    <p class='service-explain'>
+      記録するアプリ
+    </p>
+    <div class='store-btn'>
+      <%= link_to image_tag("—Pngtree—ink texture watercolor brush_5518211の緑", class:"apple-btn"), "#" %>
+      <%= link_to image_tag("—Pngtree—ink texture watercolor brush_5518211の緑", class:"google-btn"), "#" %>
+    </div>
+  </div>
+  <div class='movie-contents'>
+    <h2 class='title'>ピックアップカテゴリー</h2>
+    <div class="subtitle" >
+      新規投稿
+    </div>
+    <ul class='movie-lists'>
+
+      <% if @movies.present? %>
+        <% @movies.each do |movie| %>
+          <li class='list'>
+            <%# link_to movie_path(movie.id) do %>
+            <div class='movie-img-content'>
+              <%= image_tag movie.image, class: "movie-img" %>
+            </div>
+              <div class='movie-info'>
+                <h3 class='movie-name'>
+                  <%= movie.movie_title %>
+                </h3>
+                <div class='movie-price'>
+                  <span><%= movie.movie_rating %><br><%= movie.genre.name %></span>
+                  <div class='star-btn'>
+                    <%= image_tag "—Pngtree—ink texture watercolor brush_5518211の黄色", class:"star-icon" %>
+                    <span class='star-count'>0</span>
+                  </div>
+                </div>
+              </div>
+            <%# end %>
+          </li>
+        <% end %>
+
+      <% else %>
+        <li class='list'>
+          <%= link_to '#' do %>
+          <%= image_tag " ", class: "movie-img" %>
+          <div class='movie-info'>
+            <h3 class='movie-name'>
+              商品を出品してね！
+            </h3>
+            <div class='movie-price'>
+              <span>99999999円<br>(税込み)</span>
+              <div class='star-btn'>
+                <%= image_tag " ", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% @movies.each do |movie| %>
+    <p><%= movie.image %></p>
+    <h4 class="mb-3">評価：<%= movie.movie_rating %>点 </h4>
+    <div id="star-rate-<%= movie.id %>"></div>
+    <script>
+          $('#star-rate-<%= movie.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            score: <%= movie.movie_rating %>,
+        });
+    </script> 
+<% end %>
