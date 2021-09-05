@@ -15,7 +15,7 @@ PASSWORD:
 ￼
 ## DEMO
   
-￼
+￼Copyright MovieDiaryApp 2021.png
 ## 工夫したポイント
   
 ・評価用の星をつける機能
