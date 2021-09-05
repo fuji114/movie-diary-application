@@ -1,0 +1,65 @@
+<%= render "shared/header" %>
+
+<div class="movie-show">
+  <div class="movie-box">
+    <h2 class="name">
+      <%= @movie.movie_title %>
+    </h2>
+    <div class="item-img-content">
+      <%= image_tag @movie.image.variant(resize: '400x400'), class:"item-box-img" %>
+      
+    <% if user_signed_in? #&& @movie.order == nil %>
+      <% if current_user.id == @movie.user_id %>
+        <%= link_to "商品の編集", edit_movie_path(@movie.id), method: :get, class: "movie-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", movie_path(@movie.id), method: :delete, class:"movie-destroy" %>
+      <% else %>
+          <%= link_to "購入画面に進む", movie_orders_path(@movie.id), class:"movie-red-btn"%>
+      <% end %>
+    <% end %>
+
+    <div class="movie-explain-box">
+      <span><%# @movie.product_description %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-movie">投稿者</th>
+          <td class="detail-value"><%= @movie.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-movie">ジャンル</th>
+          <td class="detail-value"><%= @movie.genre.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-movie">年代</th>
+          <td class="detail-value"><%= @movie.movie_age.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-movie">監督</th>
+          <td class="detail-value"><%= @movie.film_director %></td>
+        </tr>
+        <tr>
+          <th class="detail-movie">キャスト</th>
+          <td class="detail-value"><%# @movie.synopsis %></td>
+        </tr>
+        <tr>
+          <th class="detail-movie">あらすじ（感想など）</th>
+          <td class="detail-value"><%= @movie.synopsis %></td>
+        </tr>
+        <tr>
+          <th class="detail-movie">評価</th>
+          <td class="detail-value"><%= @movie.movie_rating %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="comment-new">
+    <%= link_to "コメントをする", new_movie_comment_path(@movie.id), class: "comment-new-path" %>
+  </div>
+
+  <a href="#" class="another-movie"><%= @movie.movie_age.name %>をもっと見る</a><br>
+  <a href="#" class="another-movie"><%= @movie.genre.name %>をもっと見る</a>
+</div>
+
+<%= render "shared/footer" %>

@@ -10,12 +10,16 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(movie_params)
+    @movie = Movie.create(movie_params)
     if @movie.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @movie = Movie.find(params[:id])
   end
 
   private
@@ -32,4 +36,5 @@ class MoviesController < ApplicationController
           )
           .merge(user_id: current_user.id)
   end
+
 end
