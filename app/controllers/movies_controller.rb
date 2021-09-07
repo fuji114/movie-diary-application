@@ -1,17 +1,19 @@
 class MoviesController < ApplicationController
-  before_action :move_to_index, except: [:index]
+  before_action :movie_to_index, except: [:index]
 
   def index
+    binding.pry
     @movies = Movie.includes(:user).order('created_at DESC')
   end
 
   def new
-    @movie = Movie.new
+    @movie_cast = MovieCast.new
   end
-
+#binding.pry
   def create
-    @movie = Movie.create(movie_params)
-    if @movie.save
+    @movie_cast = MovieCast.new(movie_params)
+    if @movie_cast.valid?
+      @movie_cast.save
       redirect_to root_path
     else
       render :new
@@ -24,17 +26,11 @@ class MoviesController < ApplicationController
 
   private
 
-  def move_to_index
+  def movie_to_index
     redirect_to action: :index unless user_signed_in?
   end
 
   def movie_params
-    params.require(:movie)
-          .permit(
-            :image, :movie_title, :genre_id, :movie_age_id,
-            :film_director, :synopsis, :movie_rating
-          )
-          .merge(user_id: current_user.id)
+    params.require(:movie_cast).permit(:image, :movie_title, :genre_id, :movie_age_id,:film_director, :synopsis, :movie_rating, :actor).merge(user_id: current_user.id)
   end
-
 end
