@@ -15,7 +15,7 @@ PASSWORD:
 ￼
 ## DEMO
   
-￼MovieDiary2222.png
+￼./images/MovieDiary2222.png
 ## 工夫したポイント
   
 ・評価用の星をつける機能

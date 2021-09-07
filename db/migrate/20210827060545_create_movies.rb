@@ -6,7 +6,7 @@ class CreateMovies < ActiveRecord::Migration[6.0]
       t.integer :film_director
       t.integer :genre_id,           null: false
       t.text :synopsis
-      t.float :movie_rating,           null: false
+      t.float :movie_rating
       t.text :review
       t.references :user, null: false, foreign_key: true
       t.timestamps
