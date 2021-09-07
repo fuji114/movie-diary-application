@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_06_003920) do
+ActiveRecord::Schema.define(version: 2021_09_07_055535) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -52,14 +52,21 @@ ActiveRecord::Schema.define(version: 2021_09_06_003920) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "meetings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "movie_title", null: false
     t.integer "movie_age_id", null: false
     t.integer "film_director"
     t.integer "genre_id", null: false
     t.text "synopsis"
-    t.float "movie_rating", null: false
-    t.text "review"
+    t.float "movie_rating"
+    t.datetime "start_time"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

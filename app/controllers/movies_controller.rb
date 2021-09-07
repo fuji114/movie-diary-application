@@ -2,7 +2,6 @@ class MoviesController < ApplicationController
   before_action :movie_to_index, except: [:index]
 
   def index
-    binding.pry
     @movies = Movie.includes(:user).order('created_at DESC')
   end
 
@@ -31,6 +30,6 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie_cast).permit(:image, :movie_title, :genre_id, :movie_age_id,:film_director, :synopsis, :movie_rating, :actor).merge(user_id: current_user.id)
+    params.require(:movie_cast).permit(:image, :movie_title, :genre_id, :movie_age_id,:film_director, :synopsis, :movie_rating, :actor,:start_time).merge(user_id: current_user.id)
   end
 end
