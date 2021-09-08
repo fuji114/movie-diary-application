@@ -12,9 +12,10 @@ PASSWORD:
   
 ## 制作背景
   
-￼
+[![Image from Gyazo](https://i.gyazo.com/385ca2d20758739026ea3f1765e78d83.png)](https://gyazo.com/385ca2d20758739026ea3f1765e78d83)
 ## DEMO
   
+  [![Image from Gyazo](https://i.gyazo.com/b509bbe62834eb74f8fb932423568b1e.gif)](https://gyazo.com/b509bbe62834eb74f8fb932423568b1e)
 ￼./images/MovieDiary2222.png
 ## 工夫したポイント
   
