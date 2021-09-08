@@ -2,9 +2,9 @@
 
 <div class="contents row">
   <div class="container">
-    <h3>投稿する</h3>
-    <%= form_with model: @movie_cast, url: movies_path, local: true do |f| %>
-      <%= render 'shared/error_messages', model: @movie_cast %>
+    <h3>MOVIEの編集</h3>
+    <%= form_with(model: @movie, local: true) do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
       <div class="img-upload">
         <div class="weight-bold-text">
           イメージ
@@ -17,7 +17,6 @@
           <%= f.file_field :image, id:"movie-image" %>
         </div>
       </div>
-
       <div class="new-movies">
         <div class="weight-bold-text">
           タイトル
@@ -37,22 +36,18 @@
         <div class="movies-explain">
           <div class="weight-bold-text">
             監督
-            <span class="indispensable">必須</span>
           </div>
           <%= f.text_field :film_director, class:"movies-text", id:"movie-info", placeholder:"DIRECTOR" %>
           <div class="weight-bold-text">
             キャスト
-            <span class="indispensable">必須</span>
           </div>
           <%= f.text_field :actor, class:"movies-text", id:"movie-info", placeholder:"ACTOR" ,rows:"7" %>
         </div>
         <div class="movies-explain">
           <div class="weight-bold-text">
             あらすじ（感想など）
-            <span class="indispensable">必須</span>
           </div>
           <%= f.text_area :synopsis, class:"movies-text", id:"movie-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
-        
           <div class="form-group row" id="star">
             <%= f.label :movie_rating,'評価 ', class:'col-md-3 col-form-label' %>
             <%= f.hidden_field :movie_rating, id: :review_star %>
@@ -63,7 +58,7 @@
                   starOff:  '<%= asset_path('star-off.png') %>',
                   starOn : '<%= asset_path('star-on.png') %>',
                   starHalf: '<%= asset_path('star-half.png') %>',
-                  scoreName: 'movie_cast[movie_rating]',
+                  scoreName: 'movie[movie_rating]',
                   half: true, 
               });
           </script>
@@ -74,8 +69,6 @@
         <%=link_to 'もどる', root_path, class:"back-btn" %>
       </div>
     <% end %>
-
-    
   </div>
 </div>
 

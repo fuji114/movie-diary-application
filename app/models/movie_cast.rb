@@ -1,6 +1,6 @@
 class MovieCast
   include ActiveModel::Model
-  attr_accessor :movie_title, :image, :movie_age_id, :genre_id, :film_director, :movie_rating, :synopsis, :user_id, :actor
+  attr_accessor :movie_title, :image, :movie_age_id, :genre_id, :film_director, :movie_rating, :synopsis, :user_id, :actor,:start_time
 
 
   with_options presence: true do
@@ -18,7 +18,7 @@ class MovieCast
     movie = Movie.create(
       movie_title: movie_title,image: image,movie_age_id: movie_age_id,
       genre_id: genre_id, film_director: film_director,movie_rating: movie_rating,
-      synopsis: synopsis, user_id: user_id)
+      start_time: start_time, synopsis: synopsis, user_id: user_id)
     Cast.create(actor: actor, movie_id: movie.id)
   end
 end

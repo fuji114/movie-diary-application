@@ -2,7 +2,6 @@ class MoviesController < ApplicationController
   before_action :movie_to_index, except: [:index]
 
   def index
-    binding.pry
     @movies = Movie.includes(:user).order('created_at DESC')
   end
 
@@ -24,6 +23,28 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  def edit
+    @movie = current_user.movies.find(params[:id])
+  end
+
+  def update
+    @movie = current_user.movies.find(params[:id])
+    @movie_cast = MovieCast.new(**movie_params, movie: @movie)
+    if @movie_cast.valid?
+      @movie_cast.save
+      redirect_to movie_path(@movie.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie_cast = MovieCast.new(current_user, movie: @movie)
+    @movie_cast.destroy
+    redirect_to root_path
+  end
+
   private
 
   def movie_to_index
@@ -31,6 +52,6 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie_cast).permit(:image, :movie_title, :genre_id, :movie_age_id,:film_director, :synopsis, :movie_rating, :actor).merge(user_id: current_user.id)
+    params.require(:movie_cast).permit(:image, :movie_title, :genre_id, :movie_age_id,:film_director, :synopsis, :movie_rating, :actor,:start_time).merge(user_id: current_user.id)
   end
 end

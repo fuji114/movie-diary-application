@@ -6,21 +6,18 @@
       <%= @movie.movie_title %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag @movie.image.variant(resize: '400x400'), class:"item-box-img" %>
+      <%= image_tag @movie.image.variant(resize: '400x400'), class:"item-box-img" %><br>
       
-    <% if user_signed_in? #&& @movie.order == nil %>
+    <% if user_signed_in? %>
       <% if current_user.id == @movie.user_id %>
-        <%= link_to "商品の編集", edit_movie_path(@movie.id), method: :get, class: "movie-red-btn" %>
+        <%= link_to "編集", edit_movie_path(@movie.id), method: :get, class: "movie-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", movie_path(@movie.id), method: :delete, class:"movie-destroy" %>
       <% else %>
-          <%= link_to "購入画面に進む", movie_orders_path(@movie.id), class:"movie-red-btn"%>
+          <%= link_to "コメントをする", new_movie_comment_path(@movie.id), class: "comment-new-path" %>
       <% end %>
     <% end %>
 
-    <div class="movie-explain-box">
-      <span><%# @movie.product_description %></span>
-    </div>
     <table class="detail-table">
       <tbody>
         <tr>
@@ -41,7 +38,7 @@
         </tr>
         <tr>
           <th class="detail-movie">キャスト</th>
-          <td class="detail-value"><%# @movie.synopsis %></td>
+          <td class="detail-value"><%= @movie.cast.actor %></td>
         </tr>
         <tr>
           <th class="detail-movie">あらすじ（感想など）</th>
@@ -53,9 +50,6 @@
         </tr>
       </tbody>
     </table>
-  </div>
-  <div class="comment-new">
-    <%= link_to "コメントをする", new_movie_comment_path(@movie.id), class: "comment-new-path" %>
   </div>
 
   <a href="#" class="another-movie"><%= @movie.movie_age.name %>をもっと見る</a><br>
