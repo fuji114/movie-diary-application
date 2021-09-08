@@ -1,0 +1,75 @@
+<%= render "shared/header" %>
+
+<div class="contents row">
+  <div class="container">
+    <h3>MOVIEの編集</h3>
+    <%= form_with(model: @movie, local: true) do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          イメージ
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"movie-image" %>
+        </div>
+      </div>
+      <div class="new-movies">
+        <div class="weight-bold-text">
+          タイトル
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :movie_title, class:"movies-text", id:"movie-name", placeholder:"TITLE", maxlength:"40" %>
+        <div class="weight-bold-text">
+          ジャンル
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"movie-genre"}) %>
+        <div class="weight-bold-text">
+          年代
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:movie_age_id, MovieAge.all, :id, :name, {}, {class:"select-box", id:"movie-movie-age"}) %>
+        <div class="movies-explain">
+          <div class="weight-bold-text">
+            監督
+          </div>
+          <%= f.text_field :film_director, class:"movies-text", id:"movie-info", placeholder:"DIRECTOR" %>
+          <div class="weight-bold-text">
+            キャスト
+          </div>
+          <%= f.text_field :actor, class:"movies-text", id:"movie-info", placeholder:"ACTOR" ,rows:"7" %>
+        </div>
+        <div class="movies-explain">
+          <div class="weight-bold-text">
+            あらすじ（感想など）
+          </div>
+          <%= f.text_area :synopsis, class:"movies-text", id:"movie-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+          <div class="form-group row" id="star">
+            <%= f.label :movie_rating,'評価 ', class:'col-md-3 col-form-label' %>
+            <%= f.hidden_field :movie_rating, id: :review_star %>
+          </div>
+          <script>
+              $('#star').raty({
+                  size     : 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'movie[movie_rating]',
+                  half: true, 
+              });
+          </script>
+        </div>
+      </div>
+      <div class="sell-btn-contents">
+        <%= f.submit "投稿ボタン" ,class:"sell-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

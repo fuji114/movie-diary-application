@@ -1,5 +1,5 @@
 body {
-  background-color: #fff;
+  background-color: rgb(197, 161, 161);
   color: #333;
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
@@ -14,7 +14,7 @@ p, ol, ul, td {
 }
 
 pre {
-  background-color: #eee;
+  background-color: rgb(223, 84, 84);
   padding: 10px;
   font-size: 11px;
 }
@@ -27,7 +27,7 @@ a {
   }
 
   &:hover {
-    color: #fff;
+    color: rgb(111, 148, 44);
     background-color: #000;
   }
 }
@@ -70,7 +70,7 @@ div {
     font-size: 12px;
     margin: -7px -7px 0;
     background-color: #c00;
-    color: #fff;
+    color: rgb(216, 46, 159);
   }
 
   ul li {

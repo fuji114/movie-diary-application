@@ -23,6 +23,28 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  def edit
+    @movie = current_user.movies.find(params[:id])
+  end
+
+  def update
+    @movie = current_user.movies.find(params[:id])
+    @movie_cast = MovieCast.new(**movie_params, movie: @movie)
+    if @movie_cast.valid?
+      @movie_cast.save
+      redirect_to movie_path(@movie.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie_cast = MovieCast.new(current_user, movie: @movie)
+    @movie_cast.destroy
+    redirect_to root_path
+  end
+
   private
 
   def movie_to_index
