@@ -1,3 +1,333 @@
-// Place all the styles related to the movies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* リセットCSS */
+body {
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+
+
+/* ヘッダー */
+
+header {
+  background: #62c5b8;
+  background-image: url("—Pngtree—color-splash_5642729.png");
+  background-size: cover;
+  width: 100vw;
+  margin-bottom: 48px;
+}
+.movie-icon-nav{
+  display: flex;
+  justify-content: center;
+  padding-left: 50px;
+}
+.top-page-header {
+  width: 100%;
+  justify-content: center;
+  padding: 40 auto
+}
+.search-bar-contents {
+  //display: flex;
+  //justify-content: space-around;
+  padding: 40px auto;
+  border: 3px solid #02363f;
+}
+.nav{
+  display: flex;
+  justify-content: space-around;
+  background: #62c5b8;
+  border-top: 2px #eaf3e9 solid;
+}
+.lists-right{
+  display: flex;
+  justify-content: end;
+  width: 50vw;
+  height: 40px;
+  margin: 2px 2px 2px 2px;
+  align-items: center;
+}
+.nav__btn{
+  padding: 10px 5px;
+  font-size: 20px;
+  color: #040505;
+  text-decoration: none;
+  border-left: 5px #eaf3e9 solid;
+  border-right: 5px #eaf3e9 solid;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 4px;
+  margin: 0 -2px 0 15px;
+}
+.input-box{
+  width: 40vw;
+  font-size: 20px;
+  color: #040505;
+}
+.search-icon{
+  width: 28px;
+  height: 28px;
+}
+.search-form{
+  display: flex;
+  justify-content: left;
+  margin: 2px 2px 2px 2px;
+}
+li {
+  list-style: none;
+}
+
+/* メイン */
+
+.top-contents{
+  text-align:center;
+}
+.movie-contents{
+  background-image: url("—Pngtree—color-splash_5643815.png");
+  background-size: cover;
+  border: 5px #255470 groove;
+  border-radius: 10px;
+  margin: 5px 5px 5px 5px;
+}
+.movie-pics{
+  text-align:left;
+  margin: 2px 2px 2px 100px;
+  font-weight: bold;
+}
+.movie-lists{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px 30px;
+}
+.movie-lists>.list {
+  margin: 0 10px;
+  width: 250px;
+  padding: 25px;
+  background-color: #FFF;
+  font-weight: bold;
+  border: 5px #255470 groove;
+  border-radius: 10px;
+  background-color: rgba(216, 73, 92, 0.288);
+}
+.movie-img-content{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+/* 新規投稿 */
+.container{
+  text-align:center;
+  font-size: 20px;
+}
+.contents-row3{
+  background-size: cover;
+  border: 5px #255470 groove;
+  border-radius: 10px;
+  margin: 5px 5px 5px 5px;
+  padding-bottom: 10px;
+  background-image: url("—Pngtree—color-splash_5643041.png");
+  background-size: cover;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+.posts-title{
+  display: flex;
+  justify-content: center;
+}
+.post-title{
+  color: rgb(56, 53, 28);
+  display: flex;
+  justify-content: center;
+  margin: 0 20px 30px;
+  background-image: url("—Pngtree—ink-texture-watercolor-brush_5518211の緑.png");
+  background-size: cover;
+  width: 25%;
+}
+.img-upload{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px #255470 groove;
+  border-radius: 10px;
+  background-color: rgba(216, 73, 92, 0.288);
+  width: 600px;
+  margin: 25px 25px ;
+}
+.click-upload{
+  margin: 10px 30px;
+}
+.movies-explain{
+  margin: 20px 30px;
+  display: flex;
+  justify-content: center;
+}
+.weight-bold-contents{
+  margin: 20px 30px;
+  display: flex;
+  justify-content: center;
+}
+.weight-bold-text{
+  margin: 5px 30px;
+}
+.sell-btn-contents{
+  margin: 0 0 0 48px;
+}
+.sell-btn{
+  margin: 48px 0;
+}
+.movies-text2{
+  width: 40vw;
+  height: 100px;
+  font-size: 20px;
+}
+.form-grouprow{
+  display: flex;
+  justify-content: center;
+}
+.select-box{
+  background-color: #bde9ba;
+}
+.movies-text3{
+  background-color: #bde9ba;
+  height: 40px;
+  font-size: 20px;
+}
+.movie-image{
+  background-color: #bde9ba;
+}
+.indispensable{
+  color: red;
+}
+.indispensable2{
+  color: red;
+  margin: 0 10px 0  5px;
+}
+.form-box{
+  border: 5px #255470 groove;
+  border-radius: 10px;
+  background-color: rgba(216, 73, 92, 0.288);
+  margin: 0px 30px ;
+  padding: 10px ;
+}
+
+
+/* ムービー詳細 */
+.movie-show2{
+  margin: -10px -20 -20 0;
+  text-align:center;
+  font-size: 20px;
+  background-image: url("—Pngtree—color-splash_5645829.png");
+  background-size: cover;
+}
+.detail-tables{
+  display: flex;
+  justify-content: center;
+}
+.detail-movie{
+  margin: 5px 0 0 0;
+}
+th {
+  padding-bottom: 10px;
+}
+
+/* フッター */
+.footer {
+  text-align: center;
+}
+
+
+/* ユーザー詳細 */
+.calendar-contents{
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+.calendar-content{
+  display: flex;
+  justify-content: center;
+  width: 95vw;
+  margin: 0 10px;
+}
+.contents-row-index{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+.contents-row_movie-lists{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px 30px;
+  background-image: url("—Pngtree—color-splash_5645829.png");
+  background-size: cover;
+}
+.item-img-content{
+  display: flex;
+  justify-content: center;
+}
+.movie-box {
+  margin: 0 10px;
+  width: 250px;
+  padding: 25px;
+  background-color: #FFF;
+  font-weight: bold;
+  border: 5px #255470 groove;
+  border-radius: 10px;
+  background-color: rgba(216, 73, 92, 0.288);
+}
+
+
+/* ユーザー新規登録 */
+.signups{
+  margin: 50px 30px;
+  background-image: url(" ");
+  background-size: cover;
+  text-align: center;
+}
+.signupsform{
+  display: flex;
+  justify-content: center;
+}
+.signup{
+  display: flex;
+  justify-content: center;
+  margin: 0 10px;
+  width: 250px;
+  padding: 25px;
+  background-color: #FFF;
+  font-weight: bold;
+  border: 5px #255470 groove;
+  border-radius: 10px;
+  background-color: rgba(216, 73, 92, 0.288);
+}
+
+/* ユーザーログイン */
+.logins{
+  margin: 50px 30px;
+  background-image: url(" ");
+  background-size: cover;
+  text-align: center;
+}
+.loginsform{
+  display: flex;
+  justify-content: center;
+}
+.login{
+  display: flex;
+  justify-content: center;
+  margin: 0 10px;
+  width: 250px;
+  padding: 25px;
+  background-color: #FFF;
+  font-weight: bold;
+  border: 5px #255470 groove;
+  border-radius: 10px;
+  background-color: rgba(216, 73, 92, 0.288);
+}

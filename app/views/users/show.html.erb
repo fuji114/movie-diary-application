@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
-<div class="contents row">
+
+<div class="calendar-contents">
   <table>
     <thead>
       <tr>
@@ -7,43 +8,35 @@
         <th scope="co1">Start time</th>
       </tr>
     </thead>
-    <tbody>
-      <% @movies.each do |movie| %>
-        <tr>
-          <td><%= movie.user.nickname %></td>
-        </tr>
-      <% end %>
-    </tbody>
   </table>
-  <%= month_calendar events: @movies do |date, movies| %>
-    <%= date %>
-    <%= movies.each do |movie| %>
-      <div>
-        <%= link_to image_tag("5.png", class:"apple-btn"), movie_path(movie.id) %>
-      </div>
+  <div class="calendar-content">
+    <%= month_calendar events: @movies do |date, movies| %>
+      <%= date %>
+      <%= movies.each do |movie| %>
+        <div>
+          <%= link_to image_tag("5.png", class:"apple-btn"), movie_path(movie.id) %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
-<div class="contents row">
+
+<div class="contents-row-index">
   <p><%= "#{@user.nickname}さんの情報の一覧" %></p>
-  <% @movies.each do |movie| %>
-    <div class="content_post" style="background-image: url(<%= movie.image %>);">
-      <div class="more">
-        <span><%= image_tag '5.png' %></span>
-        
-      </div>
-      <div class="movie-show">
-        <%= link_to movie_path(movie.id) do %>
-          <div class="movie-box">
-            <h2 class="name">
-              <%= movie.movie_title %>
-            </h2>
-            <div class="item-img-content">
-              <%= image_tag movie.image.variant(resize: '400x400'), class:"item-box-img" %>
-            </div>
-            </div>
-            <h4 class="mb-3">評価：<%= movie.movie_rating %>点 </h4>
-            <div id="star-rate-<%= movie.id %>"></div>
+</div>
+<div class="contents-row_movie-lists">
+  <div class="contents-row_movie-list">
+    <% @movies.each do |movie| %>
+      <%= link_to movie_path(movie.id) do %>
+        <div class="movie-box">
+          <h3 class="name">
+            <%= movie.movie_title %>
+          </h3>
+          <div class="item-img-content">
+            <%= image_tag movie.image.variant(resize: '300x300'), class:"item-box-img" %>
+          </div>
+          <h4 class="mb-3">評価：<%= movie.movie_rating %>点 </h4>
+          <div id="star-rate-<%= movie.id %>"></div>
             <script>
               $('#star-rate-<%= movie.id %>').raty({
                 size: 36,
@@ -56,9 +49,9 @@
                 });
             </script>
           </div>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 <%= render "shared/footer" %>
