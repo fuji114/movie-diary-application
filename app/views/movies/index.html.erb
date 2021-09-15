@@ -1,27 +1,20 @@
 <%= render "shared/header" %>
 
 <div class='title-contents'>
+  <div class='top-contents'>
     <h2 class='service-title'>
       映画鑑賞の投稿・記録・レビュー
     </h2>
     <p class='service-explain'>
-      いつどんな映画を見たかを
+      いつどんな映画を見たかを記録するアプリ
     </p>
-    <p class='service-explain'>
-      記録するアプリ
-    </p>
-    <div class='store-btn'>
-      <%= link_to image_tag("on.png", class:"apple-btn"), "#" %>
-      <%= link_to image_tag("on.png", class:"google-btn"), "#" %>
-    </div>
   </div>
 
 
 
   <div class='movie-contents'>
-    <h2 class='title'>ピックアップカテゴリー</h2>
-    <div class="subtitle" >
-      新規投稿
+    <div class='movie-pics'>
+      <h2 class='title'>ピックアップ!!</h2>
     </div>
     <ul class='movie-lists'>
       <% if @movies.present? %>
@@ -33,7 +26,7 @@
                   <%= movie.movie_title %>
                 </h3>
                 <div class='movie-img-content'>
-                  <%= image_tag movie.image.variant(resize: '500x500'), class: "movie-img" %>
+                  <%= image_tag movie.image.variant(resize: '300x300'), class: "movie-img" %>
                 </div>
               </div>
             <% end %>
