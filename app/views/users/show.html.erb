@@ -1,20 +1,20 @@
 <%= render "shared/header" %>
 
 <div class="calendar-contents">
-  <table>
+  <%#table>
     <thead>
       <tr>
         <th scope="co1">Name</th>
         <th scope="co1">Start time</th>
       </tr>
     </thead>
-  </table>
+  </table>%>
   <div class="calendar-content">
     <%= month_calendar events: @movies do |date, movies| %>
       <%= date %>
       <%= movies.each do |movie| %>
         <div>
-          <%= link_to image_tag("5.png", class:"apple-btn"), movie_path(movie.id) %>
+          <%= movie.created_at %>
         </div>
       <% end %>
     <% end %>

@@ -1,14 +1,15 @@
 <%= render "shared/header" %>
 
 <div class="movie-show2">
-  <div class="movie-box">
-    <h2 class="name">
-      <%= @movie.movie_title %>
-    </h2>
-    <div class="item-img-content">
-      <%= image_tag @movie.image.variant(resize: '400x400'), class:"item-box-img" %><br>
+  <div class="movie-boxs">
+    <div class="movie-box2">
+      <h2 class="name">
+        <%= @movie.movie_title %>
+      </h2>
+      <div class="item-img-content">
+        <%= image_tag @movie.image.variant(resize: '400x400'), class:"item-box-img" %><br>
+      </div>
     </div>
-    
   </div>
 
   <div class="movie-show-contents">
@@ -40,7 +41,19 @@
         </tr>
         <tr>
           <th class="detail-movie">評価</th>
-          <td class="detail-value"><%= @movie.movie_rating %></td>
+          <td class="detail-value">
+          <div id="star-rate-<%= @movie.id %>"></div>
+          <script>
+            $('#star-rate-<%= @movie.id %>').raty({
+              size: 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              readOnly: true, 
+              score: <%= @movie.movie_rating %>,
+              });
+          </script></td>
         </tr>
       </tbody>
     </table>
