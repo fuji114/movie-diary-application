@@ -4,13 +4,16 @@
     <div class='movie-icon-nav' >
       <%= link_to image_tag("—Pngtree—ink_texture_watercolor_brush_5518211の黄色.png", class:"movie-icon"), "/" %>
     </div>
+
     <div class='nav'>
-      <form class="search-form" action="#">
-        <input class='input-box' placeholder='キーワードから探す'>
+      <%= form_with(url: search_movies_path, local: true, method: :get, class: "search-form") do |form| %>
+        <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "input-box" %>
         <button class="search-button">
-          <%= image_tag "hatena_magnifying-glass_41017-300x300.jpeg", class:"search-icon" %>
+          <%= link_to image_tag("hatena_magnifying-glass_41017-300x300.jpeg", class:"search-icon") %>
         </button>
-      </form>
+      <% end %>
+
+
       <ul class='lists-right'>
         <% if user_signed_in? %>
           <li><%= link_to current_user.nickname, user_path(current_user), class: "nav__btn" %> </li>
