@@ -48,7 +48,7 @@ class MoviesController < ApplicationController
   def search
     @movies = MovieCast.search(params[:keyword])
     @keyword = params[:keyword]
-    render "index"
+    render "search"
   end
 
 
