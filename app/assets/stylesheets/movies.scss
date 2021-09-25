@@ -133,7 +133,6 @@ li {
   margin: 5px 5px 5px 5px;
   padding-bottom: 10px;
   background-image: url("—Pngtree—color-splash_5643041.png");
-  background-size: cover;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -217,26 +216,46 @@ li {
   margin: 0px 30px ;
   padding: 10px ;
 }
+.form-box2{
+  border: 5px #255470 groove;
+  border-radius: 10px;
+  background-color: rgba(216, 73, 92, 0.288);
+  margin: 20px 30px 0;
+  padding: 10px ;
+}
 
 
 /* ムービー詳細 */
 .movie-show2{
+  font-weight: bold;
+  border: 5px #255470 groove;
+  border-radius: 10px;
+  background-color: rgba(216, 73, 92, 0.288);
   margin: -10px -20 -20 0;
   text-align:center;
   font-size: 20px;
   background-image: url("—Pngtree—color-splash_5645829.png");
   background-size: cover;
 }
+.movie-boxs{
+  display: flex;
+  justify-content: center;
+}
+.movie-box2 {
+  margin: 0 10px;
+  width: 250px;
+  padding: 25px;
+}
 .detail-tables{
   display: flex;
   justify-content: center;
 }
 .detail-movie{
-  margin: 5px 0 0 0;
+  border: 5px #1d41dd groove;
+  border-radius: 25px;
+  background-color: rgba(73, 106, 216, 0.521);
 }
-th {
-  padding-bottom: 10px;
-}
+
 
 /* フッター */
 .footer {

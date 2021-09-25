@@ -45,6 +45,13 @@ class MoviesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @movies = MovieCast.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "search"
+  end
+
+
   private
 
   def movie_to_index

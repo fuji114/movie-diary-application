@@ -8,5 +8,6 @@ class Movie < ApplicationRecord
   has_one :cast
   has_one_attached :image
 
+  
 
 end

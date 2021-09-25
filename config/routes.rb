@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: "movies#index"
 
   resources :movies do
+    collection do
+      get 'search'
+    end
     resources :comments, only: [:create, :new]
   end
   resources :users, only: [:show]
