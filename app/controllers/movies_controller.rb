@@ -40,8 +40,7 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie = Movie.find(params[:id])
-    @movie_cast = MovieCast.new(current_user, movie: @movie)
-    @movie_cast.destroy
+    @movie.destroy
     redirect_to root_path
   end
 
