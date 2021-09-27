@@ -6,31 +6,39 @@
   
 ## 本番環境
   
+
 URL:https://movie-diary-application.herokuapp.com/
+Basic認証
 ID:
 PASSWORD:
   
-## 制作背景
+ログイン情報（テスト用）
+Eメール:
+パスワード:
+  
+
+## 制作背景(意図)
+  
+　使用目的は映画を視聴して、いつ・どんな映画を見たのかを記録するメモとしてのアプリを目指して作成しました。  
+
   
 [![Image from Gyazo](https://i.gyazo.com/385ca2d20758739026ea3f1765e78d83.png)](https://gyazo.com/385ca2d20758739026ea3f1765e78d83)
 ## DEMO
   
   [![Image from Gyazo](https://i.gyazo.com/b509bbe62834eb74f8fb932423568b1e.gif)](https://gyazo.com/b509bbe62834eb74f8fb932423568b1e)
-￼./images/MovieDiary2222.png
+
 ## 工夫したポイント
   
-・評価用の星をつける機能
+- 評価用の星をつける機能
   
-## 実装予定の内容
+## 課題や今後実装したい機能
   
-・タグ機能
-・出演者を多数記述できるように多対多のアソシエーション
-・カレンダー機能
+- タグ機能
+- 出演者を多数記述できるように多対多のアソシエーション
+- カレンダー機能
   
 ## DB設計
   
-  
-# テーブル設計
 
 ## users テーブル
 
