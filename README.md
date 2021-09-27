@@ -6,31 +6,39 @@
   
 ## 本番環境
   
-URL:https://movie-diary-application.herokuapp.com/
-ID:
-PASSWORD:
+URL:https://movie-diary-application.herokuapp.com/  
+Basic認証  
+ID:admin  
+PASSWORD:2222  
   
-## 制作背景
+ログイン情報（テスト用）  
+Eメール:aaa@mails  
+パスワード:222222  
   
-[![Image from Gyazo](https://i.gyazo.com/385ca2d20758739026ea3f1765e78d83.png)](https://gyazo.com/385ca2d20758739026ea3f1765e78d83)
+
+## 制作背景(意図)
+  
+　使用目的は映画を視聴して、いつ・どんな映画を見たのかを記録するメモとしてのアプリを目指して作成しました。  
+記入する情報は最低限にして簡単に記録できてタイトルからの検索もできるようにしてあります。  
+
+  
 ## DEMO
   
-  [![Image from Gyazo](https://i.gyazo.com/b509bbe62834eb74f8fb932423568b1e.gif)](https://gyazo.com/b509bbe62834eb74f8fb932423568b1e)
-￼./images/MovieDiary2222.png
+  ### トップページ
+[![Image from Gyazo](https://i.gyazo.com/bc23349c5356e60ffadff99696ea7aa1.png)](https://gyazo.com/bc23349c5356e60ffadff99696ea7aa1)  
+  
+  ### 新規投稿ページ
+[![Image from Gyazo](https://i.gyazo.com/d6b5738ad933a78c389e138f872d5534.png)](https://gyazo.com/d6b5738ad933a78c389e138f872d5534)  
+  
+  ### 投稿詳細ページ
+[![Image from Gyazo](https://i.gyazo.com/d0bdf020577ccaa377b949a131bb4ba0.png)](https://gyazo.com/d0bdf020577ccaa377b949a131bb4ba0)  
+  
 ## 工夫したポイント
   
-・評価用の星をつける機能
-  
-## 実装予定の内容
-  
-・タグ機能
-・出演者を多数記述できるように多対多のアソシエーション
-・カレンダー機能
+- 評価用の星をつける機能
   
 ## DB設計
   
-  
-# テーブル設計
 
 ## users テーブル
 
@@ -64,7 +72,6 @@ PASSWORD:
 - belongs_to :user
 - has_many :comments
 - has_one :cast
-- has_one :tag
 
 
 ## comments テーブル
@@ -79,18 +86,6 @@ PASSWORD:
 ### Association
 
 - belongs_to :user
-- belongs_to :movie
-
-
-## tags テーブル
-
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| tag_name           | string     |                                |
-| movie              | references | null: false, foreign_key: true |
-
-### Association
-
 - belongs_to :movie
 
 

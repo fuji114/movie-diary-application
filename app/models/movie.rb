@@ -5,7 +5,7 @@ class Movie < ApplicationRecord
 
   belongs_to :user
   has_one :comment
-  has_one :cast
+  has_one :cast, foreign_key: :movie_id, dependent: :destroy
   has_one_attached :image
 
   
