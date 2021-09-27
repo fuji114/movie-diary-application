@@ -12,8 +12,8 @@ ID:admin
 PASSWORD:2222  
   
 ログイン情報（テスト用）  
-Eメール:  
-パスワード:  
+Eメール:aaa@mails  
+パスワード:222222  
   
 
 ## 制作背景(意図)
@@ -24,8 +24,15 @@ Eメール:
   
 ## DEMO
   
+  ### トップページ
+[![Image from Gyazo](https://i.gyazo.com/bc23349c5356e60ffadff99696ea7aa1.png)](https://gyazo.com/bc23349c5356e60ffadff99696ea7aa1)  
   
-
+  ### 新規投稿ページ
+[![Image from Gyazo](https://i.gyazo.com/d6b5738ad933a78c389e138f872d5534.png)](https://gyazo.com/d6b5738ad933a78c389e138f872d5534)  
+  
+  ### 投稿詳細ページ
+[![Image from Gyazo](https://i.gyazo.com/d0bdf020577ccaa377b949a131bb4ba0.png)](https://gyazo.com/d0bdf020577ccaa377b949a131bb4ba0)  
+  
 ## 工夫したポイント
   
 - 評価用の星をつける機能
