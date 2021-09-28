@@ -22,6 +22,7 @@ class MovieCast
       start_time: start_time, synopsis: synopsis, user_id: user_id)
     Cast.create(actor: actor, movie_id: movie.id)
   end
+  
   def self.search(search)
     if search != ""
       Movie.where('movie_title LIKE(?)', "%#{search}%")
