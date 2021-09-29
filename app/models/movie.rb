@@ -8,6 +8,4 @@ class Movie < ApplicationRecord
   has_one :cast, foreign_key: :movie_id, dependent: :destroy
   has_one_attached :image
 
-  
-
 end
