@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
   def new
     @movie_cast = MovieCast.new
   end
-#binding.pry
+
   def create
     @movie_cast = MovieCast.new(movie_params)
     if @movie_cast.valid?
@@ -20,14 +20,13 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = current_user.movie.find(params[:id])
-    @movie_cast = MovieCast.new(movie: @movie)
+    @movie = Movie.find(params[:id])
   end
 
   def edit
     @movie = Movie.find(params[:id])
   end
-
+  #binding.pry
   def update
     @movie = Movie.find(params[:id])
     if @movie.update(movie_params)
