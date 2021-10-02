@@ -28,6 +28,7 @@ class MoviesController < ApplicationController
   end
   
   #binding.pry
+  
   def update
     @movie = Movie.find(params[:id])
     if @movie.update(movie_params)
