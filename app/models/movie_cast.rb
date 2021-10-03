@@ -13,7 +13,6 @@ class MovieCast
   validates :movie_rating, numericality: {
     less_than_or_equal_to: 5, greater_than_or_equal_to: 1}
 
-
   def save
     movie = Movie.create(
       movie_title: movie_title,image: image,movie_age_id: movie_age_id,
