@@ -1,14 +1,6 @@
 <%= render "shared/header" %>
 
 <div class="calendar-contents">
-  <%#table>
-    <thead>
-      <tr>
-        <th scope="co1">Name</th>
-        <th scope="co1">Start time</th>
-      </tr>
-    </thead>
-  </table>%>
   <div class="calendar-content">
     <%= month_calendar events: @movies do |date, movies| %>
       <%= date %>
@@ -54,4 +46,5 @@
     <% end %>
   </div>
 </div>
+
 <%= render "shared/footer" %>
